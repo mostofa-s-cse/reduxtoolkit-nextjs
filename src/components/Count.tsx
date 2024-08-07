@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Count = ({ count }) => {
+interface CountProps {
+    count: number;
+}
+
+const Count: React.FC<CountProps> = ({ count }) => {
     return (
         <h2 className="text-2xl font-semibold">
             {count}
