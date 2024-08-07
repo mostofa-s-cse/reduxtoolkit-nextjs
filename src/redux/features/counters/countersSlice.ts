@@ -2,9 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     counters: [
-        { id: 1, value: 0, message: '' },
-        { id: 2, value: 0, message: '' },
-        { id: 3, value: 0, message: '' },
+        { id: 1, value: 0, message: '' }
     ]
 };
 
@@ -29,9 +27,20 @@ const countersSlice = createSlice({
             } else {
                 state.counters[counterIndex].message = 'Value cannot be negative';
             }
+        },
+        addCounter: (state) => {
+            const newId = state.counters.length ? state.counters[state.counters.length - 1].id + 1 : 1;
+            state.counters.push({ id: newId, value: 0, message: '' });
+        },
+        resetCounter: (state, action) => {
+            const counterIndex = state.counters.findIndex(
+                (c) => c.id === action.payload
+            );
+            state.counters[counterIndex].value = 0;
+            state.counters[counterIndex].message = '';
         }
     }
 });
 
 export default countersSlice.reducer;
-export const { increment, decrement } = countersSlice.actions;
+export const { increment, decrement, addCounter, resetCounter } = countersSlice.actions;
