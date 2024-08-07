@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
-import Button from "@/components/Button";
-import Count from "@/components/Count";
+import Button from "@/components/Home/Button";
+import Count from "@/components/Home/Count";
 
 // Define types for props
 interface CounterProps {

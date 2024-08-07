@@ -1,10 +1,10 @@
 'use client';
 import React from 'react';
-import Counter from "@/components/Counter";
-import Stats from "@/components/Stats";
+import Counter from "@/components/Home/Counter";
+import Stats from "@/components/Home/Stats";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "@/redux/store";
-import { decrement, increment, addCounter, resetCounter } from "@/redux/features/counters/countersSlice";
+import { RootState } from "@/lib/redux/store";
+import { decrement, increment, addCounter, resetCounter } from "@/lib/redux/features/counters/countersSlice";
 
 const Home: React.FC = () => {
     const counters = useSelector((state: RootState) => state.counters.counters);
